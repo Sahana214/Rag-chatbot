@@ -10,7 +10,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import FakeEmbeddings
 
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY =st.secrets("GEMINI_API_KEY")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
@@ -62,9 +62,7 @@ if uploaded_files:
 
   
     embeddings = FakeEmbeddings(size=768)
-    db = Chroma.from_documents(chunks, embeddings, persist_directory="chroma_db")
-    db.persist()
-
+    db = Chroma.from_documents(chunks, embeddings)
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
