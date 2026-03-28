@@ -10,7 +10,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import FakeEmbeddings
 
 load_dotenv()
-GEMINI_API_KEY =st.secrets("GEMINI_API_KEY")
+GEMINI_API_KEY =st.secrets["GEMINI_API_KEY"]
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
