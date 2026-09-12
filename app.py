@@ -100,7 +100,7 @@ Question:
     with st.spinner("Generating answer..."):
         try:
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.6-flash",
                 contents=prompt
             )
             answer = response.text
@@ -125,3 +125,4 @@ if st.session_state.chat_history:
         data=json.dumps(st.session_state.chat_history, indent=2),
         file_name="chat_history.json"
     )
+
